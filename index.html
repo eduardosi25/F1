@@ -1,0 +1,125 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+  <link rel="stylesheet" href="http://widget.cloud.opta.net/2.0/css/widgets.opta.css" type="text/css">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="title-menu title-menu-calendar offset-lg-1 col-lg-3 row">
+        <div class="detail-square"></div>
+        <div class=""><span>Calendario</span> <i id="fa-caret-right-calendar" class="fas fa-caret-right"></i></div>
+      </div>
+    <div class="title-menu title-menu-vivo col-lg-3 row">
+      <div class="detail-square"></div>
+      <div class=""><span>En vivo</span> <i id="fa-caret-right-vivo" class="fas fa-caret-right"></i></div>
+    </div>
+    <div class="title-menu title-menu-clasif col-lg-3 row">
+      <div class="detail-square"></div>
+      <div class=""><span>Clasificaciones</span> <i id="fa-caret-right-clasif" class="fas fa-caret-right "></i></div>
+   </div>
+      <!--   <div class="detail-square"></div> <div class="title-menu title-menu-info col-lg-2"><span>Infografías</span> <i id="fa-caret-right-info" class="fas fa-caret-right"></i></div>-->
+    </div>
+
+
+
+    <opta class="calendar" widget="calendar" sport="motorsport" competition="1" season="2018" order_by="date_asc" show_detail="false" show="all" opta_logo="false" narrow_limit="400"></opta>
+    <opta class="standings-manu" widget="standings" sport="motorsport" competition="1" season="2018" sub="constructor" vehicle_type="car" limit="0" sorting="false" show_teams="true" show_victories="true" driver_names="full" opta_logo="false"></opta>
+    <opta class="standings" widget="standings" sport="motorsport" competition="1" season="2018" sub="driver" vehicle_type="car" limit="0" sorting="false" show_teams="true" show_victories="true" driver_names="full" opta_logo="false"></opta>
+    <!-- <opta class="profile" widget="profile" sport="motorsport" competition="1" season="2018" sub="driver" vehicle_type="car" motorsport_id="288" show_drivers="true" show_secondary_drivers="false" show_image="true" show_flag="true" show_driver_profiles="false" driver_names="full" team_names="full" opta_logo="false" narrow_limit="400"></opta>
+    -->
+    <opta class="liverace" widget="liverace" sport="motorsport" competition="1" season="2018" gpno="1" vehicle_type="car" live="true" show_car="true" show_team="true" show_driver_status="true" time_format="time" driver_names="full" opta_logo="false" narrow_limit="400"></opta>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+  <script src="https://npmcdn.com/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <script type="text/javascript" src="http://widget.cloud.opta.net/2.0/js/widgets.opta.js"></script>
+</body>
+<script type="text/javascript">
+  var bespokeClientFunction = function() {
+
+    },
+    _optaParams = {
+      custID: '876e183e0d7b95e679ac7d43621ea584',
+      timezone: 3,
+      language: 'es',
+      callbacks: [bespokeClientFunction]
+    };
+
+
+
+  $(".title-menu-vivo").click(function() {
+    $(".title-menu-vivo").addClass('active').siblings().removeClass('active');
+    $('#fa-caret-right-vivo').addClass('fa-caret-down').siblings().removeClass('fa-caret-right');
+    $("#opta-widget-idx-0").hide();
+    $("#opta-widget-idx-1").hide();
+    $("#opta-widget-idx-2").hide();
+    $("#opta-widget-idx-3").show();
+    $('#fa-caret-right-calendar').addClass('fa-caret-right');
+    $('#fa-caret-right-clasif').addClass('fa-caret-right');
+    $('#fa-caret-right-info').addClass('fa-caret-right');
+  });
+  $(".title-menu-calendar").click(function() {
+    $(".title-menu-calendar").addClass('active').siblings().removeClass('active');
+    $('#fa-caret-right-calendar').addClass('fa-caret-down').siblings().removeClass('fa-caret-right');
+    $("#opta-widget-idx-0").show();
+    $("#opta-widget-idx-1").hide();
+    $("#opta-widget-idx-2").hide();
+    $("#opta-widget-idx-3").hide();
+    $('#fa-caret-right-vivo').addClass('fa-caret-right');
+    $('#fa-caret-right-clasif').addClass('fa-caret-right');
+    $('#fa-caret-right-info').addClass('fa-caret-right');
+  });
+  $(".title-menu-clasif").click(function() {
+    $(".title-menu-clasif").addClass('active').siblings().removeClass('active');
+    $('#fa-caret-right-clasif').addClass('fa-caret-down').siblings().removeClass('fa-caret-right');
+    $("#opta-widget-idx-0").hide();
+    $("#opta-widget-idx-1").show();
+    $("#opta-widget-idx-2").show();
+    $("#opta-widget-idx-3").hide();
+    $('#fa-caret-right-vivo').addClass('fa-caret-right');
+    $('#fa-caret-right-calendar').addClass('fa-caret-right');
+    $('#fa-caret-right-info').addClass('fa-caret-right');
+  });
+  $(".title-menu-info").click(function() {
+    $(".title-menu-info").addClass('active').siblings().removeClass('active');
+    $('#fa-caret-right-info').addClass('fa-caret-down').siblings().removeClass('fa-caret-right');
+    $("#opta-widget-idx-0").hide();
+    $("#opta-widget-idx-1").show();
+    $("#opta-widget-idx-2").hide();
+    $("#opta-widget-idx-3").hide();
+    $('#fa-caret-right-vivo').addClass('fa-caret-right');
+    $('#fa-caret-right-calendar').addClass('fa-caret-right');
+    $('#fa-caret-right-clasif').addClass('fa-caret-right');
+  });
+
+  $(window).on("load", function() {
+    $(".title-menu-calendar").addClass('active').siblings().removeClass('active');
+    $('#fa-caret-right-calendar').addClass('fa-caret-down').siblings().removeClass('fa-caret-right');
+    $("#opta-widget-idx-0").show();
+    $("#opta-widget-idx-1").hide();
+    $("#opta-widget-idx-2").hide();
+    $("#opta-widget-idx-3").hide();
+    $('#fa-caret-right-vivo').addClass('fa-caret-right');
+    $('#fa-caret-right-clasif').addClass('fa-caret-right');
+    $('#fa-caret-right-info').addClass('fa-caret-right');
+  });
+</script>
+
+
+</html>
